@@ -16,5 +16,3 @@
       register: container_id
     - name: Copy to docker container
       command: docker cp "/home/ec2-user/website/." {{container_id.stdout}}:/var/www/html
-    - name: Restart docker container
-      command: docker restart {{container_id.stdout}}
