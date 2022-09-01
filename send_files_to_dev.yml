@@ -1,0 +1,17 @@
+---
+- hosts: tag_Name_dev
+  remote_user: ec2-user
+  become: true
+  tasks:
+    - name: Create folder for files
+      file:
+        path: /home/ec2-user/website
+        state: directory
+    - name: Send files
+      copy:
+        src: "{{playbook_dir}}/"
+        dest: /home/ec2-user/website
+    - name: Copy to docker container
+      command: docker cp "/home/ec2-user/website/." lamp:/var/www/html
+    - name: Restart docker container
+      command: docker restart lamp
