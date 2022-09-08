@@ -48,5 +48,5 @@ class TestAppearanceCheck():
     assert len(elements) > 0
     self.driver.find_element(By.CSS_SELECTOR, ".learn-more").click()
     self.vars["url"] = self.driver.execute_script("return window.location.href")
-    assert(self.vars["url"] == "http://54.236.245.160/#item-list")
+    assert(self.vars["url"] == "http://127.0.0.1/#item-list")
   
