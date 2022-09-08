@@ -19,7 +19,7 @@ class TestAppearanceCheck():
     self.driver.quit()
   
   def test_appearanceCheck(self):
-    self.driver.get("http://54.236.245.160/")
+    self.driver.get("http://127.0.0.1/")
     self.driver.set_window_size(1936, 1056)
     assert self.driver.title == "RMIT Store"
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".navbar-brand > img")
