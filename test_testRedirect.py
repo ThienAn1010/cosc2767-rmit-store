@@ -14,6 +14,15 @@ class TestTestRedirect():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
     self.vars = {}
+      print(driver.title)
+
+    print(driver.page_source)
+
+    performance_log = driver.get_log('performance')
+    print (str(performance_log).strip('[]'))
+
+    for entry in driver.get_log('performance'):
+        print (entry)  
   
   def teardown_method(self, method):
     self.driver.quit()
