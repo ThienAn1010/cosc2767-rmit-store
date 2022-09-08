@@ -14,7 +14,7 @@ class TestTestRedirect():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
     self.vars = {}
-      print(driver.title)
+    print(driver.title)
 
     print(driver.page_source)
 
