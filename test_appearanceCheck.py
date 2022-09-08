@@ -17,7 +17,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class TestAppearanceCheck():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome('/usr/bin/chromedriver',options=chrome_options)
+    self.driver = webdriver.Chrome('options=chrome_options)
     self.vars = {}
   
   def teardown_method(self, method):
