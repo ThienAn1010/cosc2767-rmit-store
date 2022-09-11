@@ -4,16 +4,17 @@ import time
 import json
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-dev-shm-usage')
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+chrome_options = Options()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-dev-shm-usage')
 
 class TestAppearanceCheck():
   def setup_method(self, method):
@@ -45,13 +46,39 @@ class TestAppearanceCheck():
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".nav_searchFrom > .lnr")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".animated:nth-child(1)")
+    elements = self.driver.find_elements(By.XPATH, "//h2[contains(.,\'Global University\')]")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".fadeIn")
+    elements = self.driver.find_elements(By.XPATH, "//h5[contains(.,\'Buy at Our Store\')]")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".learn-more")
+    elements = self.driver.find_elements(By.XPATH, "//a[contains(@href, \'#item-list\')]")
     assert len(elements) > 0
+    elements = self.driver.find_elements(By.XPATH, "//h1[contains(.,\'Database connection error\')]")
+    assert len(elements) == 0
     self.driver.find_element(By.CSS_SELECTOR, ".learn-more").click()
     self.vars["url"] = self.driver.execute_script("return window.location.href")
     assert(self.vars["url"] == "http://127.0.0.1/#item-list")
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(1) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(2) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(3) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(4) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(5) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(6) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(7) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(8) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(9) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(10) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(11) > img")
+    assert len(elements) > 0
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".col-md-3:nth-child(12) > img")
+    assert len(elements) > 0
   
