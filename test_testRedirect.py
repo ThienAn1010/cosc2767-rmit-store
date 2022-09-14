@@ -24,7 +24,7 @@ class TestTestRedirect():
     self.driver.quit()
   
   def test_testRedirect(self):
-    self.driver.get("http://127.0.0.1/")
+    self.driver.get("http://52.4.199.93/")
     self.driver.set_window_size(1936, 1056)
     assert self.driver.title == "RMIT Store"
     self.driver.find_element(By.LINK_TEXT, "Clothing").click()
