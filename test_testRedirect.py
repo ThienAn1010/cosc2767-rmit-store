@@ -24,19 +24,24 @@ class TestTestRedirect():
     self.driver.quit()
   
   def test_testRedirect(self):
-    self.driver.get("http://52.4.199.93/")
+    self.driver.get("http://127.0.0.1/")
     self.driver.set_window_size(1936, 1056)
     assert self.driver.title == "RMIT Store"
     self.driver.find_element(By.LINK_TEXT, "Clothing").click()
     assert self.driver.title == "Official RMIT Apparel - RMIT Store"
+    self.driver.execute_script("window.history.go(-1)")
     self.driver.find_element(By.LINK_TEXT, "Accessories").click()
     assert self.driver.title == "Accessories - RMIT Store"
+    self.driver.execute_script("window.history.go(-1)")
     self.driver.find_element(By.LINK_TEXT, "Stationery").click()
     assert self.driver.title == "Stationery - RMIT Store"
+    self.driver.execute_script("window.history.go(-1)")
     self.driver.find_element(By.LINK_TEXT, "Course").click()
     assert self.driver.title == "Course - RMIT Store"
-    self.driver.find_element(By.XPATH, "//a[contains(@href, \'https://www.campusstore.rmit.edu.au/collections/special-collection\')]").click()
+    self.driver.execute_script("window.history.go(-1)")
+    self.driver.find_element(By.LINK_TEXT, "Special-Collection").click()
     assert self.driver.title == "Special Collection - RMIT Store"
+    self.driver.execute_script("window.history.go(-1)")
     self.driver.find_element(By.LINK_TEXT, "Sale").click()
     assert self.driver.title == "Sale - RMIT Store"
   
